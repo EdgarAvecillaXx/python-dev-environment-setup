@@ -1,40 +1,105 @@
-# Python Learning Path - Week 1: Python & Setup Foundations  
-*Self-directed Bootcamp: AI, Cross-Platform, and Blockchain*
+#  My Development Environment Configuration
 
-![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)
-![Status](https://img.shields.io/badge/Status-In_Progress-yellow)
+This repository documents my process for setting up a complete development environment for programming and data science projects. It serves as a perosnal reference and a record of my progress in learning development tools.
 
-## 🧭 Navigation
-- [Goals](#-week-1-goals)
-- [Structure](#%EF%B8%8F-repository-structure) 
-- [Resources](#-resources-used)
+## 🛠️ Configured Tools
 
-## 📌 Week 1 Goals  
-- [x] Set up the development environment (VS Code, Git, GitHub)  
-- [x] Learn Python basics (syntax, functions, file handling)  
-- [x] Introduction to AI/ML concepts  
+- **VS Code**: Editor de código principal con extensiones para desarrollo Python
+- **Git & GitHub**: Control de versiones y colaboración
+- **Miniconda**: Gestión de entornos Python y paquetes
+- **Plataformas de aprendizaje**: Cuentas configuradas en sitios de ejercicios y aprendizaje
+- **VS Code**: Main code editor with extension for Python development extensions
+- **Git & Github**: Version control and collaboration
+- **Miniconda**: Python environment and package management
+- **Learning Platforms**: Account set up on coding practice and learning sites 
 
-## 🛠️ Repository Structure
+## 📁 Repository Structure
+
+- `/vs-code`: VS Code configuration and extensions
+- `/git-github`: Git and Github setup
+- `/python`: Miniconda and virual environment setup
+- `/screenshots`: Installation verification screenshots
+
 ```text
-.
-├── python_essentials/      # Basic Python exercises
-│   ├── hello.py            # First Python script
-│   └── projects_manager.py # CLI project tracker
-├── ai_concepts.md          # AI terminology notes
-└── linear_regression.py    # ML basics implementation
+dev-environment-setup/
+├── README.md                 # Main documentation
+├── vs-code/
+│   ├── extensions.md         # List of installed extensions
+│   └── settings.json         # Your custom VS Code configuration
+├── git-github/
+│   ├── git-config.md         # Git configuration
+│   └── ssh-setup.md          # SSH setup for GitHub
+├── python/
+│   ├── miniconda-setup.md    # Miniconda installation and setup
+│   └── environments/         # Virtual environment documentation
+│       ├── base-env.yml      # Base environment file
+│       └── data-science-env.yml # Data science environment
+└── screenshots/              # Verification screenshots
+    ├── vs-code-working.png
+    ├── git-verification.png
+    └── conda-env-list.png
 ```
 
-## ⚡ Quick Setup
-```bash
-git clone https://github.com/EdgarAvecillaXx/python-bases.git
-cd python-bases
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-pip install -r requirements.txt
-```
+## 🔧 VS Code Setup
 
-## 🔍 Resources Used
-- [Intermediate Python - Codedex](https://www.codedex.io/intermediate-python)  
-- [Course "AI For Everyone" (Coursera)](https://www.coursera.org/learn/ai-for-everyone)
-- [Real Python Tutorials](https://realpython.com/)
+I have installed VS Code as my main IDE with the following extensions for Python development:
+
+- Python (Microsoft)
+- Pylance
+- Python Indent
+- Python Docstring Generator
+- GitLens
+- GitHub Pull Requests
+- Material Icon Theme
+- Jupyter
+
+See [full configuration details](vs-code/extensions.md).
+
+## 📚 Git and Github Setup
+
+I have configured Git locally with Github for vesrion control:
+
+- Git installation
+- User and email configuration
+- SSH key generation
+- Authentication setup
+
+See [detailed instructions](git-github/git-config.md).
+
+## 🐍 Python Environments with Miniconda
+
+I have installed Miniconda to manage python environments:
+
+- Miniconda installation
+- Creation of project-specific virtual environmnets
+- Configuration of the base environment
+
+See [environment documentation](python/environments). 
+
+## 🎓 Code Practice Platforms
+
+I have registered on the following platforms for practice:
+
+- HackerRank (Python track)
+- Exercism.io (Python exercises)
+- Kaggle (Learning and competitions)
+- LeetCode (Algorithms and data structures)
+
+## 🔄 Next Steps
+
+- Set up linting and automatic formatting
+- Implement pre-commit hooks
+- Set up automated testing
+
+## 📈 Progress Tracking
+
+| Tool | Status | Date |
+|-------------|--------|-------|
+| VS Code     | ✅ Completo | DATE |
+| Git/GitHub  | ✅ Completo | DATE |
+| Miniconda   | ✅ Completo | DATE |
+| Platforms | ✅ Completo | DATE |
+
+---
+
+📌 _This repository is part of my tech portfolio development project._
