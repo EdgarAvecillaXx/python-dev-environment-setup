@@ -1,0 +1,46 @@
+{
+  // Python configuration
+  "python.defaultInterpreterPath": "python", // Path to Python interpreter
+  "python.testing.unittestEnabled": true, // Enable unittest for testing
+  "python.testing.pytestEnabled": true, // Enable pytest for additional testing
+  "python.languageServer": "Pylance", // Use Pylance as the language server for Python
+
+  //Linting and formatting settings
+  "pylint.enabled": true, // Enable pylint for linting
+  "pylint.args": ["--disable=C0114,C0115,C0116", "--max-line-length=120"], // Disable specific pylint warnings
+  "pylint.ignorePatterns": ["**/migrations/**"], // Ignore migrations folder in linting
+
+  // Formatting and code style settings
+  "editor.formatOnSave": true, // Format code on save
+  "editor.tabSize": 4, // Set tab size to 4 spaces
+  "editor.insertSpaces": true, // Use spaces instead of tabs
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  // Git and source control settings
+  "git.enableSmartCommit": true, // Enable smart commits in Git
+  "git.confirmSync": false, // Disable sync confirmation
+  "git.autofetch": true, // Enable auto-fetch for Git repositories
+
+  // Jupyter settings
+  "jupyter.askForKernelRestart": false,
+  "jupyter.interactiveWindow.creationMode": "perFile", // Use a single interactive window per file
+  "jupyter.notebookFileRoot": "${workspaceFolder}", // Set root for relative paths
+  "notebook.output.scrolling": true, // Enable scrolling for notebook outputs
+
+  // Visual and UI customizations
+  "workbench.iconTheme": "bearded-icons",
+  "workbench.colorTheme": "bac375a4-abb3-44d5-9bef-8039eb83fec0",
+  "editor.minimap.enabled": false, // Disable the minimap for cleaner workspace
+
+  // Misc settings
+  "files.autoSave": "onWindowChange", // Auto-save files on window change
+  "files.autoSaveDelay": 1000, // Auto-save delay in milliseconds
+  "files.exclude": {
+    // Hide unwanted files in the file explorer
+    "**/.git": true,
+    "**/.vscode": true,
+    "**/*.log": true
+  }
+}
