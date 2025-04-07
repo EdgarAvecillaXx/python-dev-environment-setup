@@ -16,7 +16,7 @@ Before generating a new SSH key, check if any exist to avoid overwriting them.
    ```bash
    ls -al ~/.ssh
    ```
-   Look for files like `id_rsa.pub`, `id_ecdsa.pub`, or `id_ed25519.pub`. citeturn0search1
+   Look for files like `id_rsa.pub`, `id_ecdsa.pub`, or `id_ed25519.pub`. 
 
 ---
 
@@ -85,7 +85,7 @@ Verify the setup:
 ```bash
 ssh -T git@github.com
 ```
-A success message will include your GitHub username. citeturn0search1
+A success message will include your GitHub username. 
 
 ---
 
