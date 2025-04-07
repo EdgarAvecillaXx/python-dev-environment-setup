@@ -4,11 +4,28 @@ This guide provides detailed instructions on setting up SSH keys for secure inte
 
 ---
 
+## Table of Contents
+
+1. [Checking for Existing SSH Keys](#1-checking-for-existing-ssh-keys)
+2. [Generating a New SSH Key](#2-generating-a-new-ssh-key)
+3. [Adding the SSH Key to the SSH Agent](#3-adding-the-ssh-key-to-the-ssh-agent)
+4. [Adding the SSH Key to Github](#4-adding-the-ssh-key-to-github)
+5. [Testing Your SSH Connection](#5-testing-your-ssh-connection)
+6. [Configuring SSH for Multiple Accounts](#6-configuring-ssh-for-multiple-accounts)
+7. [Advanced SSH Agent Forwarding](#7-advanced-ssh-agent-forwarding)
+8. [Troubleshooting Tips](#8-troubleshooting-tips)
+   - [Common Issues](#common-issues)
+   - [Permission Errors](#permission-errors)
+   - [Revoking Compromised Keys](#revoking-compromised-keys)
+
+---
+
 ## 1. Checking for Existing SSH Keys
 
 Before generating a new SSH key, check if any exist to avoid overwriting them.
 
 1. **Open Terminal**:
+
    - **macOS/Linux**: Use the default terminal.
    - **Windows**: Use **Git Bash** or **Windows Terminal** (recommended).
 
@@ -16,7 +33,7 @@ Before generating a new SSH key, check if any exist to avoid overwriting them.
    ```bash
    ls -al ~/.ssh
    ```
-   Look for files like `id_rsa.pub`, `id_ecdsa.pub`, or `id_ed25519.pub`. 
+   Look for files like `id_rsa.pub`, `id_ecdsa.pub`, or `id_ed25519.pub`.
 
 ---
 
@@ -25,14 +42,15 @@ Before generating a new SSH key, check if any exist to avoid overwriting them.
 If no SSH key exists, generate one:
 
 1. **Generate Key Pair**:
+
    ```bash
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
+
    - Use `rsa` instead if your system doesn’t support Ed25519:
      ```bash
      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
      ```
-   
 
 2. **File Location & Passphrase**:
    - Press `Enter` to save to the default path (`~/.ssh/`).
@@ -43,6 +61,7 @@ If no SSH key exists, generate one:
 ## 3. Adding the SSH Key to the ssh-agent
 
 1. **Start the ssh-agent**:
+
    - **macOS/Linux**:
      ```bash
      eval "$(ssh-agent -s)"
@@ -56,23 +75,27 @@ If no SSH key exists, generate one:
    ```bash
    ssh-add ~/.ssh/id_ed25519
    ```
-   Replace `id_ed25519` if you used a custom filename. 
+   Replace `id_ed25519` if you used a custom filename.
 
 ---
 
 ## 4. Adding the SSH Key to GitHub
 
 1. **Copy the Public Key**:
+
    ```bash
    cat ~/.ssh/id_ed25519.pub
    ```
+
    Copy the output starting with `ssh-ed25519`.
 
 2. **Add Key to GitHub**:
-   - Go to **Settings** → **SSH and GPG Keys** → **New SSH Key**.
-   - Paste your key and save. 
 
-   *Tip*: Use the GitHub CLI for a faster workflow:
+   - Go to **Settings** → **SSH and GPG Keys** → **New SSH Key**.
+   - Paste your key and save.
+
+   _Tip_: Use the GitHub CLI for a faster workflow:
+
    ```bash
    gh auth login --ssh
    ```
@@ -82,10 +105,12 @@ If no SSH key exists, generate one:
 ## 5. Testing Your SSH Connection
 
 Verify the setup:
+
 ```bash
 ssh -T git@github.com
 ```
-A success message will include your GitHub username. 
+
+A success message will include your GitHub username.
 
 ---
 
@@ -94,9 +119,11 @@ A success message will include your GitHub username.
 **Use Case**: Separate personal and work accounts.
 
 1. **Generate Unique Keys**:
+
    - Example: `id_ed25519_personal` and `id_ed25519_work`.
 
 2. **Edit `~/.ssh/config`**:
+
    ```bash
    Host github.com-personal
      HostName github.com
@@ -113,7 +140,6 @@ A success message will include your GitHub username.
    ```bash
    git clone git@github.com-personal:username/repo.git
    ```
-   
 
 ---
 
@@ -122,9 +148,11 @@ A success message will include your GitHub username.
 Securely use local SSH keys on a remote server:
 
 1. **Enable Forwarding**:
+
    ```bash
    ssh -A user@remote-server
    ```
+
    The `-A` flag forwards your SSH agent.
 
 2. **Permanent Configuration**:
@@ -139,14 +167,18 @@ Securely use local SSH keys on a remote server:
 ## 8. Troubleshooting Tips
 
 ### Permission Errors
+
 Fix overly permissive SSH key/directory permissions:
+
 ```bash
 chmod 600 ~/.ssh/id_ed25519*  # Sets keys to read/write for owner only
 chmod 700 ~/.ssh              # Restricts directory access
 ```
 
 ### Common Issues
+
 - **"Permission Denied (publickey)"**:
+
   - Ensure the key is added to `ssh-agent` and GitHub.
   - Specify the key explicitly:
     ```bash
@@ -160,6 +192,7 @@ chmod 700 ~/.ssh              # Restricts directory access
   ```
 
 ### Revoking Compromised Keys
+
 1. Go to **GitHub Settings** → **SSH and GPG Keys**.
 2. Delete the compromised key.
 3. Generate and add a new key using the steps above.
@@ -167,13 +200,3 @@ chmod 700 ~/.ssh              # Restricts directory access
 ---
 
 Your SSH setup is now secure and flexible enough for most workflows. For further details, visit [GitHub’s SSH Documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh). 🚀
-```
-
-### **Key Improvements**:
-1. **Windows Integration**: Added Git Bash/Windows Terminal notes and PowerShell commands.
-2. **Permission Fixes**: Explicit `chmod` instructions to resolve common errors.
-3. **GitHub CLI**: Streamlined SSH login alternative.
-4. **Revoking Keys**: Clear steps to handle compromised keys.
-5. **Agent Forwarding**: Advanced use case for remote servers.
-
-This version is ready for use! Let me know if you need further refinements. 😊
