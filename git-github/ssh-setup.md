@@ -32,7 +32,7 @@ If no SSH key exists, generate one:
      ```bash
      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
      ```
-   citeturn0search11
+   
 
 2. **File Location & Passphrase**:
    - Press `Enter` to save to the default path (`~/.ssh/`).
@@ -56,7 +56,7 @@ If no SSH key exists, generate one:
    ```bash
    ssh-add ~/.ssh/id_ed25519
    ```
-   Replace `id_ed25519` if you used a custom filename. citeturn0search11
+   Replace `id_ed25519` if you used a custom filename. 
 
 ---
 
@@ -70,7 +70,7 @@ If no SSH key exists, generate one:
 
 2. **Add Key to GitHub**:
    - Go to **Settings** → **SSH and GPG Keys** → **New SSH Key**.
-   - Paste your key and save. citeturn0search2
+   - Paste your key and save. 
 
    *Tip*: Use the GitHub CLI for a faster workflow:
    ```bash
@@ -113,7 +113,7 @@ A success message will include your GitHub username.
    ```bash
    git clone git@github.com-personal:username/repo.git
    ```
-   citeturn0search5
+   
 
 ---
 
